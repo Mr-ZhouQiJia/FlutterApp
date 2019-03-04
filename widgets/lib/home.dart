@@ -68,7 +68,8 @@ class HomeState extends State<Home> {
     );
 
     //布局3
-
+    //按钮文字
+    var btnStyle =TextStyle(color: Color(0xffffff),fontSize: 13);
     //左侧头像图片
     var leftHeaderImage =Image.asset("images/headerImage.jpg",width: 50,height: 50,);
 
@@ -99,11 +100,33 @@ class HomeState extends State<Home> {
       ],
     );
 
+    //尾部
+    var end3 =Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Icon(Icons.language,size:15),
+            Icon(Icons.local_airport, size: 15),
+            Icon(Icons.person_pin_circle, size: 15)
+          ],
+        ),
+        Container(
+          color: Colors.yellow,
+          child: Text("编辑",style: TextStyle(fontSize: 13,color: Colors.blue),),
+          width: 50,
+          height: 30,
+          alignment: Alignment.center,
+          )
+      ],
+    );
+
     var rowLine3 =Row(
       children: <Widget>[
           Padding(child: leftHeaderImage,padding: EdgeInsets.only(left: 5),),
           Expanded(child: Padding(padding: EdgeInsets.all(5),child: centerColumn,),),
-          end
+          end3
       ],
     );
 
@@ -131,7 +154,7 @@ class HomeState extends State<Home> {
             new Container(
               color: Colors.red,
               padding: EdgeInsets.all(10),
-              margin: EdgeInsets.all(50),
+              margin: EdgeInsets.only(top: 6),
               child: rowLine3,
             )
           ],

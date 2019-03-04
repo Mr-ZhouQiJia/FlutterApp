@@ -29,8 +29,9 @@ class TodayState extends State<Today> {
           backgroundColor: Colors.red,
           centerTitle: true,
         ),
+        //resizeToAvoidBottomPadding: false,
         body: new Center(
-          child: new Text("想法"),
+          child: new TextField(),
         ),
         drawer: draw,
       ),
