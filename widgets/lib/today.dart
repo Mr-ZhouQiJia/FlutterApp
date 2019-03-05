@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:widgets/widgets/DdTextfield.dart';
 class Today extends StatefulWidget {
   @override
   TodayState  createState() => new TodayState();
@@ -29,9 +29,9 @@ class TodayState extends State<Today> {
           backgroundColor: Colors.red,
           centerTitle: true,
         ),
-        //resizeToAvoidBottomPadding: false,
+        
         body: new Center(
-          child: new TextField(),
+          child:  DDTextfield(placeHolder: "24213",),
         ),
         drawer: draw,
       ),

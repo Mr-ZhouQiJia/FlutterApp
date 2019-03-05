@@ -57,7 +57,7 @@ class ContactsState extends State<Contacts> {
               labelText: '您的手机号码',
               fillColor: Colors.white
             ),
-            //autofocus: false,
+            autofocus: false,
           ),
           new Container(
             margin: EdgeInsets.only(left: 16, right: 16, top: 30),
