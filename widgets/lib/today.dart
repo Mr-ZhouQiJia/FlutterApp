@@ -22,19 +22,26 @@ class TodayState extends State<Today> {
 
   @override
   Widget build(BuildContext context){ 
-    return new MaterialApp(
-      home: new Scaffold(
+    return 
+       new Scaffold(
         appBar: new AppBar(
           title: new Text("想法"),
           backgroundColor: Colors.red,
           centerTitle: true,
         ),
         
-        body: new Center(
-          child:  DDTextfield(placeHolder: "24213",),
+        body: new GestureDetector(
+          onTap: () {
+            print("点击");
+             FocusScope.of(context).requestFocus(FocusNode());
+             },
+          behavior: HitTestBehavior.opaque,
+          child:  new Center(
+          child:  DDTextfield(placeHolder: "342134",),
+          ),
         ),
-        drawer: draw,
-      ),
-    );
+        
+      );
+    
   }
 }
