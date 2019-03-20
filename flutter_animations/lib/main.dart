@@ -25,7 +25,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 //with 是 Dart 中的一个关键字，可以把它理解为 混入（mixin） 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
+class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   
   AnimationController controller;
   Animation<EdgeInsets> animation;
@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     super.initState();
     //创建AnimationController对象
     controller =AnimationController(
-      vsync: this, duration: const Duration(milliseconds: 10000)
+      vsync: this, duration: const Duration(milliseconds: 1000)
     );
     //通过Tween对象,创建Animation对象
     // animation =Tween(begin: 50.0, end: 200.0).animate(controller)
@@ -56,13 +56,13 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     //             );
 
     //EdgeInsetsTween是Tween的子类
-    animation = EdgeInsetsTween(begin: EdgeInsets.only(top: 0.0 , left: 0.0), end: EdgeInsets.only(top: 100, left:100),) .animate(
-      //设置曲线动画,也就是设置动画执行的路径
+    animation = EdgeInsetsTween(begin: EdgeInsets.only(top: 0.0 , left: 0.0), end: EdgeInsets.only(top: 500, left:0.0),).animate(
+      // //设置曲线动画,也就是设置动画执行的路径
       CurvedAnimation(
         parent: controller,
         curve: Interval(
           0.1, 
-          0.5,
+          0.9,
           curve: Curves.fastOutSlowIn,
         ),
       ),
@@ -75,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
 
                 //AnimationStatus.completed 表示动画在结束时停止的状态，这个时候我们让动画反向执行（从后往前）；AnimationStatus.dismissed 表示动画在开始时就停止的状态，这个时候我们让动画正常执行（从前往后）。这样就可以让动画无限执行了。
      ..addStatusListener((status){
+                    print(status);
                     if (status ==AnimationStatus.completed) {
                       controller.reverse();
                     } else if(status ==AnimationStatus.dismissed){
@@ -85,6 +86,15 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     //执行动画
     controller.forward();
   }
+
+  Future  _startAnimation() async{
+    try {
+      await controller.repeat();
+    } on TickerCanceled {
+      print("Animation Faild");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
    
@@ -104,16 +114,16 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
             width: 150,
             height: 150,
             padding: animation.value,
-            color:Colors.red,
+            color:Colors.yellow,
             
           ),
           ],
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   tooltip: 'Increment',
-      //   child: Icon(Icons.add),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
   @override

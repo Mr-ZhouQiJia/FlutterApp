@@ -4,7 +4,6 @@ import 'package:widgets/widgets/DdTextfield.dart';
 class Contacts extends StatefulWidget {
   @override
   ContactsState  createState() => new ContactsState();
-
 }
 
 class ContactsState extends State<Contacts> {

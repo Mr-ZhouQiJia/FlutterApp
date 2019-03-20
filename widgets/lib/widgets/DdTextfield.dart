@@ -9,7 +9,7 @@ class DDTextfield extends StatefulWidget {
 }
 
 class DDTextfieldState extends State<DDTextfield>  {
-  String _inputText = "52345";                                  //默认输入的内容
+  String _inputText = "";                                  //默认输入的内容
   TextEditingController _textController;                      //控制器，控制TextField文字
   bool _hasDeleteIcon = false;                                //判断是否正在输入内容
 
