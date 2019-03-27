@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 void main() => runApp(MyApp(
   items:List<String>.generate(1000, (i) => "Item ${i * 2}")
 ));
@@ -26,7 +25,6 @@ class MyApp extends StatelessWidget {
         )
         ),
       );
-    
   }
 }
 
