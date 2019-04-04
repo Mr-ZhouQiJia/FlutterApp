@@ -12,9 +12,19 @@ class RecomandPageState extends State<RecommandPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: AppBar(title: Text('推荐'),),
+      appBar: AppBar(
+        title: Text('推荐',style: TextStyle(color: Colors.black,fontSize: 16)),
+        toolbarOpacity: 0.3,
+        backgroundColor: Colors.white,
+        //centerTitle: false,
+        elevation: 0,
+        flexibleSpace: Text('1232342134314123423'),
+        ),
+        backgroundColor: Colors.lightBlue,
       body: Container(
-        child: Text('推荐'),
+        child: CustomScrollView(
+           
+        )
       ),
     );
   }

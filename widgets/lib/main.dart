@@ -25,15 +25,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -41,33 +32,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-  int _counter = 0;
   int _currentIndex = 0; //当前界面的索引值
   List<NavigationIconView> _navigationViews;
   List<StatefulWidget> _pageList; //存放图标对应的页面
   StatefulWidget _currentPage; // 当前的显示页面
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   void _rebuild(){
-    setState(() {
-      
+    setState(() {     
     });
   }
 
   @override
   void initState(){
-
     super.initState();
-
     //初始化导航图标
     _navigationViews = <NavigationIconView>[
       new NavigationIconView(icon: new Icon(Icons.assessment), title: new Text("首页"), vsync: this),
@@ -85,26 +61,18 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         new Home(),
         new Today(),
         new Contacts(),
-
     ];
     _currentPage =_pageList[_currentIndex];
-
   }
     
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    var iconInfoMap = {
-        "首页" :Icon(Icons.home),
-        //"消息" :Icon(Icons.comment),
-        "动态" :Icon(Icons.toys),
-        "联系人":Icon(Icons.contacts)
-    };
+    // var iconInfoMap = {
+    //     "首页" :Icon(Icons.home),
+    //     //"消息" :Icon(Icons.comment),
+    //     "动态" :Icon(Icons.toys),
+    //     "联系人":Icon(Icons.contacts)
+    // };
     var bottomNavigationBar =BottomNavigationBar(
       items: _navigationViews.map((NavigationIconView navigationIconView) => navigationIconView.item).toList(), //添加icon按钮
       currentIndex: _currentIndex, //当前点击的索引值
