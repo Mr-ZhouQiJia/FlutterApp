@@ -12,9 +12,13 @@ class ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: AppBar(title: Text('项目'),),
+      appBar: AppBar(title: Text('散标',style: TextStyle(color: Colors.black),),backgroundColor: Colors.white,elevation: 0.0,),
       body: Container(
-        child: Text('项目'),
+        child: CustomScrollView(
+          slivers: <Widget>[
+            
+          ],
+        ),
       ),
     );
   }
